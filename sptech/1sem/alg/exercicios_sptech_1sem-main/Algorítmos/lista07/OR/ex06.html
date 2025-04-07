@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de cansaço do aluno SPTech</title>
+</head>
+
+<body>
+    <!--
+        6. Vamos melhorar o exercício anterior. Crie um programa o qual: 
+
+            a) Tenha o seguinte texto no topo: 
+
+            Calculadora de cansaço aprimorada do aluno SPTech. 
+
+            b) Tenha o texto "Meio de transporte" e uma input para o usuário inserir o meio de transporte dele, podendo ser: 
+
+                Ônibus. 
+
+                Metrô. 
+
+                Carro. 
+
+                Bicicleta. 
+
+            c) Tenha um input para o usuário digitar a distância da casa dele até a faculdade, com o texto "Distância da faculdade (KM)". 
+
+            d) Tenha o botão "Calcular cansaço" que ao clicar mostrar em um alerta o nível de cansaço do usuário. 
+
+                d.1) Se a distância da faculdade for de ATÉ 10 KM: 
+
+                SE o meio de transporte for "Carro" OU "Metrô" OU "Ônibus" exiba um alert com a frase ("Tá tranks ..."). 
+
+                SENÃO exiba um alert com a frase ("É ... um pouco cansado ..."). 
+
+                d.2) Se a distância da faculdade for MAIOR que 10 KM: 
+
+                SE o meio de transporte for "Carro" exiba um alert com a frase ("É ... um pouco cansado ..."); 
+
+                SE o meio de transporte for "Metrô" OU "Ônibus" exiba um alert com a frase ("Bem cansado ..."). 
+
+                SE o meio de transporte for "Bicicleta" exiba um alert com a frase ("Vish ... tá só o pó ..."). 
+    -->
+
+    <h1>Calculadora de cansaço do aluno SPTech. </h1>
+    <p>Meio de transporte</p>
+    <input type="text" id="input_transporte">
+    <br>
+    <p>Distância da faculdade (KM)</p>
+    <input type="text" id="input_distancia_casa_faculdade">
+    <br>
+    <br>
+    <button onclick="calcularCansaco()">Calcular cansaço</button>
+    <br>
+
+</body>
+
+<script>
+
+    function calcularCansaco() {
+        const transporte = input_transporte.value;
+        const distanciaCasaFaculdade = input_distancia_casa_faculdade.value;
+
+        if (distanciaCasaFaculdade <= 10) {
+            if (transporte == "Carro" || transporte == "Metrô" || transporte == "Ônibus") {
+                alert("Tá tranks ...");
+            } else {
+                alert("É ... um pouco cansado ...");
+            };
+        } else {
+            if (transporte == "Carro") {
+                alert("É ... um pouco cansado ...");
+            } else if (transporte == "Metrô" || transporte == "Ônibus") {
+                alert("Bem cansado ...");
+            } else if (transporte == "Bicicleta") {
+                alert("Vish ... tá só o pó ...");
+            };
+        };
+    };
+
+</script>
+
+</html>

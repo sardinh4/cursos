@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Login 2</title>
+</head>
+<body>
+
+    <!--
+        8. Crie um programa que simula um pequeno sistema de login assim: 
+
+            a) Pergunte o login do usuário;
+
+            b) Pergunte a senha do usuário;
+
+            c) Pergunte o código de segurança do usuário (é como se fosse uma segunda senha, só isso);
+
+            d) Ao clicar em "Entrar"... 
+
+            d.1) Caso o login for "SPTech" e a senha for "digital" e o código de segurança for "123", exibir um alert com a frase "Usuário autenticado com sucesso";
+
+            d.2) Caso contrário, exibir um alert com "Falha na autenticação".    
+    -->
+
+    <label for="input_login">Login:</label>
+    <input type="text" id="input_login">
+    <br>
+    <br>
+    <label for="input_senha">Senha:</label>
+    <input type="password" id="input_senha">
+    <br>
+    <br>
+    <label for="input_codigo_segurança">Código de segurança:</label>
+    <input type="password" id="input_codigo_segurança">
+    <br>
+    <br>
+    <button onclick="validarAcesso()">Entrar</button>
+    
+</body>
+
+<script>
+    function validarAcesso(){
+
+        const login = input_login.value;
+        const senha = input_senha.value;
+        const codigoSeguranca = input_codigo_segurança.value;
+
+        if(login == 'SPTech' && senha == 'digital' && codigoSeguranca == "123"){
+            alert("Usuário autenticado com sucesso");
+        }else{
+            alert("Falha na autenticação");
+        };        
+    };
+
+
+   
+</script>
+
+</html>

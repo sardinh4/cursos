@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuada de Algorítimo</title>
+</head>
+<body>
+    <!-- Quantidade de energia consumida em kWh (apenas números).  -->
+
+    <p>Digite embaixo a quantidade de energia consumida em kWh</p>
+    <input type="number" id="input_qtd_energia_consumida">
+
+    <!-- Bandeira tarifária da energia (será informado "vermelha", "amarela" ou "verde"). -->
+
+    <p>Digite embaixo a bandeira da tarifa da energia ("vermelha", "amarela" ou "verde"):</p>
+    <input type="text" id="input_bandeira_energia">
+
+    <!-- Volume de água consumido em litros (apenas números). -->
+
+    <p>Digite embaixo ao volume de água consumido em litros:</p>
+    <input type="number" id="input_volume_agua_consumido">
+
+    <!-- Quantidade de vazamentos de água na casa (apenas números).  -->
+
+    <p>Digite embaixo a quantidade de vazamentos de água na casa:</p>
+    <input type="number" id="input_qtd_vazamento_agua">
+
+    <!-- Volume de gás consumido em litros (apenas números). -->
+
+    <p>Digite embaixo a quantidade de gás consumido em litros:</p>
+    <input type="number" id="input_qtd_gas_consumido">
+
+    <!-- Quantidade de MB (megabyte) do plano de internet (apenas números). -->
+
+    <p>Digite embaixo a quantidade de MB (megabyte) do plano de internet:</p>
+    <input type="number" id="input_qtd_MB_internet">
+
+    <!-- Indicação se possui uma linha telefônica vinculada ao plano de internet (será informado "sim" ou "não"). -->
+
+    <p>Você possui uma linha telefônica vinculada ao plano de internet? Digite sua resposata, "sim" ou "não", abaixo:</p>
+    <input type="text" id="input_possui_linha_telefonica_vinculada_internet">
+
+    <br>
+    <br>
+
+    <button onclick="calcularExibirDespesasFixas()">Calcular Despesas Fixas</button>
+
+    <div id="div_resultado_das_despesas"></div>
+    
+</body>
+
+<script>
+    function calcularExibirDespesasFixas(){
+        const qtdEnergiaConsumida = Number(input_qtd_energia_consumida.value);
+        const bandeiraEnergia = input_bandeira_energia.value;
+        const volumeAguaConsumido = Number(input_volume_agua_consumido.value);
+        const qtdVazamentos = Number(input_qtd_vazamento_agua.value);
+        const volumeGasConsumido = Number(input_qtd_gas_consumido.value);
+        const qtdMbInternet = Number(input_qtd_MB_internet.value);
+        const possuiLinhaTelefonicaVinculadaInternet = input_possui_linha_telefonica_vinculada_internet.value;
+
+        /*
+        Energia Elétrica:  
+            O valor base varia de acordo com a bandeira tarifária selecionada:  
+            Se for Bandeira "verde": R$0,75 por kWh. 
+            Se for Bandeira "amarela": R$0,90 por kWh. 
+            Se for Bandeira "vermelha": R$1,00 por kWh. 
+            Se a quantidade de kWh consumida informada for menor ou igual a 50, aplique um desconto de 10% no valor base da conta de energia. 
+
+            "Com o consumo de AA kWh na bandeira BB, a conta de energia totaliza R$ CC."
+        */
+
+        var basePrecoEnergia = 1;
+
+        if(bandeiraEnergia != "vermelha"){
+            if(bandeiraEnergia == "amarela"){
+                basePrecoEnergia = 0.9;
+            }else{
+                basePrecoEnergia = 0.75;
+            };
+        };
+
+
+        if (qtdEnergiaConsumida <= 50){
+            basePrecoEnergia = basePrecoEnergia*0.9;
+        };
+
+        const valorTotalEnergia = qtdEnergiaConsumida*basePrecoEnergia
+
+        div_resultado_das_despesas.innerHTML = `<p>Com o consumo de ${qtdEnergiaConsumida} kWh na bandeira ${bandeiraEnergia}, a conta de energia totaliza R$ ${valorTotalEnergia}.</p>`;
+
+        /*
+        Água:  
+            O valor base é R$3,50 por litro de água consumido. 
+            Para cada vazamento de água detectado, acrescente R$ 10,00 ao valor base da conta de água, devido ao desperdício contínuo. 
+
+            "Com o consumo de DD litros de água contendo EE vazamentos, a conta de água totaliza R$ FF. "
+        */
+
+        const valorTotalAgua = 3.5 * volumeAguaConsumido + (qtdVazamentos*10)
+
+        div_resultado_das_despesas.innerHTML += `<p>Com o consumo de ${volumeAguaConsumido} litros de água contendo ${qtdVazamentos} vazamentos, a conta de água totaliza R$ ${valorTotalAgua}.</p>`;
+
+        /*
+        Gás:  
+            O valor base é R$2,50 por litro de gás consumido. 
+
+           "Com o consumo de GG litros de gás, a conta de gás totaliza R$ HH."
+        */
+
+        const valorTotalGas = volumeGasConsumido*2.5
+
+        div_resultado_das_despesas.innerHTML += `<p>Com o consumo de ${volumeGasConsumido} litros de gás, a conta de gás totaliza R$ ${valorTotalGas}.</p>`;
+
+        /*
+        Internet/Telefone:  
+            O valor base do plano é R$0,80 por cada MB (megabyte) de internet informado pelo usuário. 
+            Se houver uma linha telefônica vinculada ("sim"), acrescente 25% ao valor base da conta de internet. 
+            Se não houver linha telefônica vinculada, desconte 7,5% do valor base da conta de internet. 
+
+            "Com o consumo de II MB de internet, o valor do plano de internet/telefone totaliza R$ JJ. "
+        */
+
+        var valorTotalInternet = qtdMbInternet*0.8*0.925;
+
+        if(possuiLinhaTelefonicaVinculadaInternet == 'sim'){
+            valorTotalInternet = qtdMbInternet*0.8*1.25;
+
+        }
+
+        div_resultado_das_despesas.innerHTML += `<p>Com o consumo de ${qtdMbInternet} MB de internet, o valor do plano de internet/telefone totaliza R$ ${valorTotalInternet}.</p>`;
+
+        /*
+        Gasto total de despesas mensal: R$ KK. 
+        */
+
+        div_resultado_das_despesas.innerHTML += `<p>Gasto total de despesas mensal: R$ ${valorTotalAgua + valorTotalEnergia + valorTotalGas + valorTotalInternet}. </p>`;
+
+
+    }
+</script>
+</html>

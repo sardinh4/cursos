@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar usando For</title>
+</head>
+<body>
+
+    <!--
+        1. Crie um programa o qual: 
+
+            a) Ao clicar num botão "Contar"... 
+
+            b) Exiba, debaixo do botão, os números de 1 a 15, um embaixo do outro.
+    -->
+
+    <button onclick="contar()">Contar</button>
+    <div id="resultado"></div>
+    
+</body>
+
+<script>
+    function contar(){
+        resultado.innerHTML = '';
+        for(var numero = 1; numero <= 15; numero++){
+            resultado.innerHTML += `<p>${numero}</p>`;
+        };
+    };
+</script>
+
+</html>

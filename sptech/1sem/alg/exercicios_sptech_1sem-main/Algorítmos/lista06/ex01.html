@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esportes</title>
+</head>
+<body>
+    <p>Digite sua altura:</p>
+    <input type="text" id="input_altura">
+    <br>
+    <button onclick="analisarExibirCondicaoEstatura()">Analisar Estatura</button>
+    <div id="div_analise_resultado"></div>
+    
+</body>
+</html>
+
+<script>
+    function analisarExibirCondicaoEstatura(){
+        const altura = input_altura.value;
+
+        var msg;
+
+        if(altura <= 1.65){
+            msg = `<p>Você pode ser piloto de corrida</p>`;
+        }else if(altura <= 1.8){
+            msg = `<p>Você pode ser jogador de futebol</p>`;
+        }else{
+            msg = `<p>Você pode ser jogador de vôlei ou basquete</p>`;
+        };
+
+        div_analise_resultado.innerHTML = msg;
+
+    }
+
+</script>

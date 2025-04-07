@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco XPTO</title>
+</head>
+<body>
+    <p>Saldo da conta (R$):</p>
+    <input type="text" id="input_saldo" placeholder="Digite aqui o saldo da conta: ">
+    <p>Débito:</p>
+    <input type="text" id="input_saque" placeholder="Digite aqui o valor do saque: ">
+    <button onclick="avaliarConta()">Analisar conta</button>
+    <p></p>
+    <div id="avaliacao"></div>
+    
+</body>
+
+<script>
+    function avaliarConta() {
+        var saldo = Number(input_saldo.value);
+        const saque = Number(input_saque.value);
+
+        saldo = saldo - saque;
+
+        if(saldo>0){
+            if(saldo >= 1){
+                avaliacao.innerHTML = `O saldo atual da conta corrente é POSITIVO: R$${saldo}`;
+            }else{
+                avaliacao.innerHTML = `O saldo atual da conta corrente é NEGATIVO: -R$${saldo}`;
+            };  
+        }else{
+            avaliacao.innerHTML = `Sua conta está ZERADA, o saldo atual da conta corrente é: R$${saldo}`;
+        };
+    }
+</script>
+</html>
+ 

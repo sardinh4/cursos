@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga Cartão FidelidadeMetro SPTrans</title>
+</head>
+
+<body>
+
+    <!--
+        11. Crie um minissistema de recarga do "cartão fidelidade" do metrô se São Paulo em HTML/JS: 
+
+            a) Solicite ao usuário que informe a quantidade de passagens que deseja adquirir;
+
+            b) Ao clicar em "Comprar", caso a quantidade for entre 8 e 50, implemente as regras entre os itens c), d) e e). Caso contrário, exiba apenas o  
+
+            c) Caso a quantidade for entre 8 e 19, aplique um desconto de 3% no valor da passagem de metrô 
+
+            d) Caso a quantidade for entre 20 e 49, aplique um desconto de 5% no valor da passagem de metrô 
+
+            e) Caso a quantidade for 50, aplique um desconto de 7% no valor da passagem de metrô 
+
+            f) Considere que o valor da passagem é R$4,40 
+
+            g) Caso a quantidade de passagens veja válida, conforme a regra em b), exiba o valor total a pagar numa frase abaixo do botão "Comprar"; 
+
+            Ex: 50 passagens devem exibir "Total a pagar: R$204.60" 
+    -->
+
+    <h1>Recarga Cartão Fidelidade Metro SPTrans</h1>
+    <label for="input_qtd_recarga">Digite a quantidade de passagens que deseja adquirir:</label>
+    <br>
+    <input type="number" id="input_qtd_recarga">
+    <br>
+    <br>
+    <button onclick="validarCompra()">Comprar</button>
+    <br>
+    <br>
+    <div id="div_resultado"></div>
+
+</body>
+
+<script>
+    function validarCompra() {
+
+        const qtdRecarga = input_qtd_recarga.value;
+        var valorPassagem = 4.4
+
+        if (qtdRecarga >= 8 && qtdRecarga <= 50) {
+            if (qtdRecarga >= 8 && qtdRecarga <= 19) {
+                valorPassagem = valorPassagem * 0.97;
+            } else if (qtdRecarga >= 20 && qtdRecarga <= 49) {
+                valorPassagem = valorPassagem * 0.95;
+            } else {
+                valorPassagem = valorPassagem * 0.93
+            }
+
+            const formato = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+
+            div_resultado.innerHTML = `Total a pagar: ${formato.format(valorPassagem * qtdRecarga)}`;
+        } else {
+            alert("Quantidade inválida para o Fidelidade!");
+        };
+
+    };
+
+
+</script>
+
+</html>

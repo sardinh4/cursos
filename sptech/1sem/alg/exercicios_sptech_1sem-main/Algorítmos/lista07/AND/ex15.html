@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Login</title>
+</head>
+<body>
+
+    <!--
+        7. Crie um programa que simula um pequeno sistema de login assim: 
+
+            a) Pergunte o login do usuário;
+
+            b) Pergunte a senha do usuário;
+
+            c) Ao clicar em "Entrar"... 
+
+            c.1) Caso o login for "SPTech" e a senha for "digital", exibir um alert com a frase "Usuário autenticado com sucesso"
+
+            c.2) Caso contrário, exibir um alert com "Falha na autenticação";
+
+            d) A senha, inicialmente, não deve aparecer para o usuário (campo tipo password), ao clicar em um botão "Ver senha", o usuário então poderá vê-la.
+    -->
+
+    <label for="input_login">Login:</label>
+    <input type="text" id="input_login">
+    <br>
+    <br>
+    <label for="input_senha">Senha:</label>
+    <input type="password" id="input_senha">
+    <button id="button_exibir_ocultar_senha" onclick="exibirOcultarSenha()">Ver senha</button>
+    <br>
+    <br>
+    <button onclick="validarAcesso()">Entrar</button>
+    
+</body>
+
+<script>
+    function validarAcesso(){
+
+        const login = input_login.value;
+        const senha = input_senha.value;
+
+        if(login == 'SPTech' && senha == 'digital'){
+            alert("Usuário autenticado com sucesso");
+        }else{
+            alert("Falha na autenticação");
+        };        
+    };
+
+    function exibirOcultarSenha(){
+        if(input_senha.type == 'password'){
+            input_senha.setAttribute('type', 'text');
+            button_exibir_ocultar_senha.innerHTML = "Ocultar senha";
+
+        }else{
+            input_senha.setAttribute('type', 'password');
+            button_exibir_ocultar_senha.innerHTML = "Ver senha";
+        };
+        
+    };
+
+   
+</script>
+
+</html>

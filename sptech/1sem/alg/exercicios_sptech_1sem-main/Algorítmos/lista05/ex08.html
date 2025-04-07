@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra</title>
+</head>
+<body>
+    <p>Digite o valor do produto:</p>
+    <input type="number" id="input_valor_produto">
+    <p>Digite a quantidade de produtos que cliente quer comprar:</p>
+    <input type="number" id="input_qtd_produto">
+    <p></p>
+    <button onclick="calcularExibirTotal()">Calcular Total</button>
+    <p></p>
+    <div id="div_resultado"></div>
+    
+    
+</body>
+<script>
+    function calcularExibirTotal(){
+        const qdtProduto = Number(input_qtd_produto.value);
+        const valorProduto = Number(input_valor_produto.value);
+        const valorTotal = qdtProduto * valorProduto;
+
+        if(valorTotal > 100){
+            div_resultado.innerHTML = `<p>Compra aprovada, valor total é de R$ ${valorTotal.toFixed(2)}</p>`;
+        }else{
+            div_resultado.innerHTML = `<p>Valor mínimo para compra é R$ 100,00, adicione mais produtos!</p>`;
+        }
+        
+    }
+
+</script>
+</html>

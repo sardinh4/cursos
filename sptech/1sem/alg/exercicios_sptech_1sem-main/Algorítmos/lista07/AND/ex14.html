@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar Aprovação do Aluno</title>
+</head>
+<body>
+
+    <!--
+        6. Crie um programa o qual: 
+
+            a) Pergunte uma nota de um aluno;
+
+            b) Pergunte a frequência de um aluno;
+
+            c) Ao clicar em "Avaliar aluno"... 
+
+            c.1) Caso a nota for a partir de 6 e a frequência for a partir de 75, exibir um alert com a frase "Parabéns! Aprovado!";
+
+            c.2) Caso contrário, exibir um alert com "Infelizmente, não foi desta vez" 
+    -->
+
+    <label for="input_nota_aluno">Digite a nota do aluno:</label>
+    <br>
+    <input type="number" id="input_nota_aluno">
+    <br>
+    <br>
+    <label for="input_frequencia_aluno">Digite a frequência do aluno:</label>
+    <br>
+    <input type="number" id="input_frequencia_aluno">
+    <br>
+    <br>
+    <button onclick="avaliarAluno()">Avaliar aluno</button>
+    
+</body>
+
+<script>
+    function avaliarAluno(){
+
+        const notaAluno = input_nota_aluno.value;
+        const frequenciaAluno = input_frequencia_aluno.value;
+
+        if(notaAluno >= 6 && frequenciaAluno >= 75){
+            alert("Parabéns! Aprovado!");
+        }else{
+            alert("Infelizmente, não foi desta vez");
+        };
+
+        
+    };
+
+   
+</script>
+
+</html>

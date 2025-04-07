@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachando a Conta - Pizza</title>
+
+    <style>
+        input{
+            display: block;
+            width: 400px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Rachando a Conta - Pizza</h1>
+    <input type="text" id="input_sabor_pizza" placeholder="Digite aqui o sabor da Pizza: ">
+    <input type="number" id="input_valor_pizza" placeholder="Digite aqui o valor da Pizza em R$: ">
+    <input type="number" id="input_quantidade_amigos" placeholder="Digite aqui a quantidade de amigos que vão comer: ">
+    <button onclick="mostrarValorAmigo()">Ver valor por amigo</button>
+    <div id="div_resultado"></div>
+    
+</body>
+
+<script>
+    function mostrarValorAmigo (){
+        var saborPizza = input_sabor_pizza.value;
+        var valor_pizza = Number(input_valor_pizza.value);
+        var quantidadeAmigos = input_quantidade_amigos.value;
+        var valorTotal = valor_pizza + valor_pizza * 0.1
+
+        div_resultado.innerHTML = `
+        <h1>Resultado</h1>
+        <p>Cada amigo vai colaborar com R$${valorTotal/quantidadeAmigos} para a pizza de ${saborPizza}.</p>
+        `
+        
+        
+    }
+</script>
+
+</html>

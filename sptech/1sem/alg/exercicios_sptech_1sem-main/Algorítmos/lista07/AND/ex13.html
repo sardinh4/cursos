@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar Nota do Aluno</title>
+</head>
+<body>
+
+    <!--
+        5. Crie um programa o qual: 
+
+            a) Pergunte uma nota de um aluno;
+
+            b) Ao clicar em "Avaliar aluno"...
+
+            b.1) Caso a nota for menor que 6, exibir um alert com a frase "Aluno não aprovado";
+
+            b.2) Caso a nota seja entre 8,5 e 10, exibir um alert com a frase "Aluno Exemplar!";
+
+            b.3) Caso a nota for entre 6 e menor que 8,5, exibir um alert com a frase "Aluno comum e aprovado".
+                -->
+
+    <label for="input_nota_aluno">Digite a nota do aluno:</label>
+    <br>
+    <input type="number" id="input_nota_aluno">
+   
+    <br>
+    <br>
+    <button onclick="avaliarAluno()">Avaliar aluno</button>
+    
+</body>
+
+<script>
+    function avaliarAluno(){
+
+        const notaAluno = input_nota_aluno.value;
+
+        if(notaAluno >= 8.5 && notaAluno <= 10){
+            alert("Aluno Exemplar!");
+        }else if(notaAluno >= 6 && notaAluno < 8.5){
+            alert("Aluno comum e aprovado");
+        }else if(notaAluno < 6){
+            alert("Aluno não aprovado");
+        };
+
+        
+    };
+
+   
+</script>
+
+</html>

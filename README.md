@@ -1,2 +1,2 @@
 # cursos
-repositório para atividades decorrente dos cursos
+Repositório para atividades decorrente de cursos

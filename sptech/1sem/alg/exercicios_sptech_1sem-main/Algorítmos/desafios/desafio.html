@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Colisão</title>
+</head>
+
+<body>
+    <p>Digite as vértices do primeiro retângulo:</p>
+    <span>x0 = </span><input type="number" id="x_0"><br>
+    <span>y0 = </span><input type="number" id="y_0"><br>
+    <span>x1 = </span><input type="number" id="x_1"><br>
+    <span>y1 = </span><input type="number" id="y_1"><br>
+
+    <p>Digite as vértices do segundo retângulo:</p>
+    <span>x0 = </span><input type="number" id="x_2"><br>
+    <span>y0 = </span><input type="number" id="y_2"><br>
+    <span>x1 = </span><input type="number" id="x_3"><br>
+    <span>y1 = </span><input type="number" id="y_3"><br>
+
+    <br>
+
+    <button onclick="verificarColisao()">Verificar colisão</button>
+
+    <br>
+    <br>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function verificarColisao() {
+        const x0 = x_0.value;
+        const y0 = y_0.value;
+        const x1 = x_1.value;
+        const y1 = y_1.value;
+        const x2 = x_2.value;
+        const y2 = y_2.value;
+        const x3 = x_3.value;
+        const y3 = y_3.value;
+
+        var msg = 'Os elementos colidem';
+
+        if(x0>x3){
+            msg = 'Elementos não colidem'
+        }
+        if(x2>x1){
+            msg = 'Elementos não colidem'
+        }
+        if(y0>y3){
+            msg = 'Elementos não colidem'
+        }
+        if(y2>y1){
+            msg = 'Elementos não colidem'
+        }
+
+
+        resultado.innerHTML = msg;
+
+
+    }
+</script>

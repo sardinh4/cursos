@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador da condição de temperatura do ambiente</title>
+</head>
+<body>
+    <h1>Verificador da condição de temperatura do ambiente</h1>
+    <p>Temperatura do ambiente:</p>
+    <input type="text" id="input_temperatura" placeholder="Digite aqui a temperatura do ambiente:">
+    <p></p>
+    <button onclick="verificarClima()">Verificar clima</button>
+    <p></p>
+    <div id="div_resultado"></div>
+    
+</body>
+<script>
+    function verificarClima(){
+        const temperatura = input_temperatura.value;
+
+        if(temperatura < 10){
+            div_resultado.innerHTML = `<img style="width: 200px;" src="https://coopsp.vtexassets.com/arquivos/ids/232479/Novo-Projeto--5-.png?v=638227937796800000" alt="banana fresca">`;
+        }else{
+            div_resultado.innerHTML = `<img style="width: 200px;" src="https://static.vecteezy.com/ti/fotos-gratis/p1/15584410-banana-podre-e-mofada-em-fundo-branco-gratis-foto.jpeg" alt="banna estragada">`;
+    };
+}
+</script>
+</html>

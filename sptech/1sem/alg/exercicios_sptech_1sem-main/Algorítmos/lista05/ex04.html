@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do Aluno</title>
+</head>
+<body>
+    <h1>Verificar a situação do aluno</h1>
+    <p>Nota 01:</p>
+    <input type="text" id="input_nota01" placeholder="Digite aqui a primeira nota:">
+    <p>Nopta 02:</p>
+    <input type="text" id="input_nota02" placeholder="Digite aqui a segunta nota:">
+    <button onclick="verificarSituacao()">Verificar situação</button>
+    <p></p>
+    <div id="div_resultado">
+
+    </div>
+    
+</body>
+<script>
+    function verificarSituacao(){
+        const nota01 = Number(input_nota01.value);
+        const nota02 = Number(input_nota02.value);
+
+        const media = (nota01 + nota02)/2;
+
+        if(media >= 6){
+            div_resultado.innerHTML = "Parabéns, aprovado!";
+        }else{
+            div_resultado.innerHTML = "Tente outra vez...";
+        };
+
+    }
+</script>
+</html>

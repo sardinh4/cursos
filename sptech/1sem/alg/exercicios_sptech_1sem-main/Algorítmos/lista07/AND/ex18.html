@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situção do Usuário</title>
+</head>
+<body>
+
+    <!--
+        10. Crie um programa o qual: 
+
+            a) Solicite a idade e o salário do usuário;
+
+            b) Ao clicar em "Analisar situação", deve aparecer uma dessas frases abaixo do botão... 
+
+            b.1) "Menor de idade e liso" -> Caso a idade seja menor que 18 e o salário for menor que 2500;
+
+            b.2) "Menor de idade e ostentação" -> Caso a idade seja menor que 18 e o salário for a partir de 2500; 
+
+            b.3) "Maior de idade e liso" -> Caso a idade for a partir de 18 e o salário for menor que 3500. 
+
+            b.4) "Maior de idade e ostentação", caso a idade for a partir de 18 e o salário for a partir de 3500 até 7000. 
+
+            b.5) "Maior de idade e jovem milionário", caso a idade for a partir de 18 e o salário for maior que 7000. 
+    -->
+
+    
+    <label for="input_idade">Digite a sua idade:</label>
+    <br>
+    <input type="number" id="input_idade">
+    <br>
+    <br>
+    <label for="input_salario">Digite seu Salário:</label>
+    <br>
+    <label for="input_salario">R$ </label>
+    <input type="number" id="input_salario">
+    <br>
+    <br>
+    <button onclick="analisarSituacao()">Analisar situação</button>
+    <br>
+    <br>
+    <div id="div_resultado"></div>
+    
+</body>
+
+<script>
+    function analisarSituacao(){
+
+        const idade = input_idade.value;
+        const salario = input_salario.value;
+
+        var mensagem = "Maior de idade e jovem milionário";
+
+        if(idade < 18 && salario < 2500){
+            mensagem =  "Menor de idade e liso";
+        }else if(idade < 18 && salario >= 2500){
+            mensagem =  "Menor de idade e ostentação";
+        }else if(idade >= 18 && salario < 3500){
+            mensagem =  "Maior de idade e liso";
+        }else if (idade >= 18 && salario >= 3500 && salario <= 7000){
+            mensagem = "Maior de idade e ostentação";
+        };
+
+        div_resultado.innerHTML = mensagem;
+    };
+
+   
+</script>
+
+</html>

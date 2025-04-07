@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado das Eleições</title>
+    <style>
+        input{
+            display: block;
+            width: 400px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eleições</h1>
+    <p>Digite as informações abaixo e depois clique no botão "Resultado da Eleição" para descobrir o resultado.</p>
+    <div id="div_input">
+        <input id="input_votos_candidato_A" type="number" placeholder="Digite aqui os votos do primeiro candidato: ">
+        <input id="input_votos_candidato_B" type="number" placeholder="Digite aqui os votos do segundo candidato: ">
+        <input id="input_votos_brancos" type="number" placeholder="Digite aqui a quantidade de votos em branco: ">
+        <input id="input_votos_nulos" type="number" placeholder="Digite aqui a quantidade de votos nulos: ">
+
+        <button id="button_calcular_sono" onclick="mostrarResultadoeleicao()">Resultado da Eleição</button>   
+    </div>
+    <div id="div_resultado_eleicao"></div>
+    
+</body>
+
+<script>
+    function mostrarResultadoeleicao(){
+        var votosCandidatoA = Number(input_votos_candidato_A.value);
+        var votosCandidatoB = Number(input_votos_candidato_B.value);
+        var votosBrancos = Number(input_votos_brancos.value);
+        var votosNulos = Number(input_votos_nulos.value);
+
+        var totalVotos = votosCandidatoA + votosCandidatoB + votosBrancos + votosNulos;
+        var votosInvalidos = votosBrancos + votosNulos;
+
+
+        div_resultado_eleicao.innerHTML = `<h2>Resultado da Eleição</h2>
+            <p>Total de votos: ${totalVotos} </p>
+            <p>Candidato A: ${votosCandidatoA*100/totalVotos}% (${votosCandidatoA})</p>
+            <p>Candidato B: ${votosCandidatoB*100/totalVotos}% (${votosCandidatoB})</p>
+            <p>Inválidos: ${votosInvalidos*100/totalVotos}% (${votosInvalidos})</p>
+            `      
+    }
+
+</script>
+
+</html>

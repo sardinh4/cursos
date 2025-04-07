@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frete</title>
+</head>
+<body>
+    <p>Digite o peso do pacote em Kg:</p>
+    <input type="number" id="input_peso_pacote">
+    <p>Digite a distância a ser percorrida em Km:</p>
+    <input type="number" id="input_distancia">
+    <p></p>
+    <button onclick="calcularExibirFrete()">Calcular Frete</button>
+    <p></p>
+    <div id="div_resultado"></div>
+    
+    
+    
+</body>
+<script>
+    function calcularExibirFrete(){
+        const peso = Number(input_peso_pacote.value);
+        const distancia = Number(input_distancia.value)
+        
+        if(peso <= 5){
+            if(distancia <= 100){
+                div_resultado.innerHTML = `<p>Frete econômico!</p>`;
+            }else{
+                div_resultado.innerHTML = `<p>Frete normal!</p>`;
+            }
+        } else{
+            div_resultado.innerHTML = `<p>Frete normal!</p>`; 
+        };
+
+        
+    }
+
+</script>
+</html>

@@ -1,0 +1,319 @@
+/* Importe da Fonte Poppins*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --cor-principal: rgb(31 36 45);
+  --cor-secundaria: #eeeef0;
+  --cor-terciaria: #2a5eb5;
+  --cor-quartenaria: #7bcfff;
+  --padding: 20px 5%;
+}
+
+/* Reset CSS */
+* {
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove preenchimentos */
+  box-sizing: border-box; /* Inclui bordas e preenchimentos nas dimensões do elemento */
+  font-family: Poppins, sans-serif; /* Estabelece a Fonte Poppins como padrão */
+  font-size: 1rem;
+  color: var(--cor-secundaria);
+  border: none;
+  background: none;
+}
+
+body {
+  max-width: 100vw;
+  background-color: var(--cor-principal);
+}
+
+header {
+  height: 20vh;
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  & h1 {
+    color: var(--cor-terciaria);
+    font-size: 2rem;
+  }
+
+  & div {
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  & button {
+    color: var(--cor-secundaria);
+    background: none;
+    border: none;
+  }
+
+  & button:hover {
+    color: var(--cor-quartenaria);
+  }
+}
+
+main {
+  height: 65vh;
+  width: 100%;
+  background-color: var(--cor-secundaria);
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  & * {
+    color: var(--cor-principal);
+  }
+
+  #h3_sub_titulo_base_original {
+    padding: 10px 60px;
+    margin: 10px 10px 30px 10px;
+    width: 90%;
+    font-size: 25px;
+    text-align: center;
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    color: var(--cor-secundaria);
+  }
+
+  #h3_sub_titulo_para {
+    color: var(--cor-principal);
+  }
+
+  #section_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+  }
+
+  #section_converter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 30px 0;
+    background-color: var(--cor-principal);
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+  }
+
+  #div_input_valor {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & p {
+    color: var(--cor-secundaria);
+  }
+
+  #div_botoes_baseConversao {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  & button {
+    background-color: var(--cor-secundaria);
+    width: 150px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  & button:hover {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-secundaria);
+    font-weight: bold;
+  }
+
+  #h3_sub_titulo_para {
+    font-size: 32px;
+  }
+
+  #section_resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px 0 30px 0;
+    background-color: var(--cor-principal);
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .h3_sub_titulo_base_conversao {
+    padding: 10px 60px;
+    margin: 10px 10px 30px 10px;
+    width: 90%;
+    font-size: 25px;
+    text-align: center;
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    color: var(--cor-secundaria);
+  }
+
+  .h3_resultado {
+    color: var(--cor-secundaria);
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .resultado {
+    height: 40%;
+    width: 90%;
+    border: solid 1px var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#p_resultado {
+  color: var(--cor-principal);
+  text-align: center;
+  font-size: 32px;
+}
+
+#input_valor,
+#input_valor:focus,
+#input_valor:hover,
+#input_valor:active {
+  color: var(--cor-secundaria);
+  cursor: pointer;
+  outline: none; /* Remove o contorno no foco */
+  border: none; /* Remove qualquer borda no foco */
+  font-size: 30px;
+  background: none; /* Remove fundo em hover/foco */
+  width: 100%;
+  text-align: center;
+}
+
+
+
+#main_calculadora {
+  background-color: var(--cor-secundaria);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#section_entrada_dados_calculadora,
+#section_resultado_calculadora {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 30px 0;
+  background-color: var(--cor-principal);
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  max-width: 42vw;
+}
+
+.div_input_valores{
+  background-color: var(--cor-secundaria);
+  border-radius: 10px;
+  display: flex;
+}
+
+.input_valores_calculadora,
+.input_valores_calculadora:focus,
+.input_valores_calculadora:hover,
+.input_valores_calculadora:active {
+  color: var(--cor-principal);
+  cursor: pointer;
+  outline: none; /* Remove o contorno no foco */
+  border: none; /* Remove qualquer borda no foco */
+  font-size: 25px;
+  background: none; /* Remove fundo em hover/foco */
+  width: 100%;
+  text-align: center;
+}
+
+#select_operador,
+#select_operador:focus,
+#select_operador:hover,
+#select_operador:active {
+  color: var(--cor-secundaria);
+  cursor: pointer;
+  outline: none; /* Remove o contorno no foco */
+  border: none; /* Remove qualquer borda no foco */
+  font-size: 25px;
+  background: none; /* Remove fundo em hover/foco */
+  width: 100%;
+  text-align: center;
+}
+
+.input_valores_calculadora{
+  color: var(--cor-principal);
+}
+
+.input_operador{
+  font-size: 20px;
+}
+
+#div_calcular{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+#h4_calcular_em{
+  color: var(--cor-secundaria);
+  font-size: 20px;
+}
+
+#div_botoes_base_conversao_calculadora{
+  display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 colunas */
+            grid-template-rows: 1fr 1fr;    /* 2 linhas */
+            gap: 10px;
+}
+
+footer {
+  height: 10vh;
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  & p {
+    font-size: 12px;
+  }
+}
+
+.menu_selecionado {
+  color: var(--cor-quartenaria);
+}
+
+.botao_selecionado {
+  background-color: var(--cor-terciaria);
+  color: var(--cor-secundaria);
+  font-weight: bold;
+}

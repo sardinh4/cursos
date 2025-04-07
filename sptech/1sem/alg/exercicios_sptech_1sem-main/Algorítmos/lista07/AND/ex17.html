@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilotos</title>
+</head>
+
+<body>
+
+    <!--
+        9. Crie um programa o qual: 
+
+            a) Pergunte o intervalo da altura desejada para os próximos pilotos (altura inicial e altura final de seleção);
+
+            b) Pergunte o nome e a altura do candidato a piloto;
+
+            c) Emitir uma das duas mensagens abaixo sem apagar as mensagens das execuções anteriores: 
+
+            c.1) “O candidato XXXXX com altura de 9,99 participará do processo de seleção de piloto”, caso a altura do candidato esteja no intervalo informado. 
+
+            c.2) “Infelizmente o candidato XXXXX com altura de 9,99 não atende os requisitos”, caso a altura do candidato não esteja no intervalo informado.
+
+            Obs: A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial; Caso não passe nessa validação apenas emita uma mensagem de erro e não faça mais nada.    
+    -->
+
+    <p>Intervalo da altura desejada para os próximos pilotos</p>
+    <span>De: </span>
+    <input type="number" id="input_altura_minima">
+    <label for="input_altura_minima"> metros</label>
+    <span> até: </span>
+    <input type="number" id="input_altura_maxima">
+    <label for="input_altura_maxima"> metros</label>
+    <br>
+    <br>
+    <p>Dados do candidato a piloto</p>
+    <label for="input_nome_candidato_piloto">Nome: </label>
+    <input type="text" id="input_nome_candidato_piloto">
+    <span> e </span>
+    <label for="input_altura_candidato_piloto"> Altura: </label>
+    <input type="number" id="input_altura_candidato_piloto">
+    <label for="input_altura_candidato_piloto"> metros </label>
+    <br>
+    <br>
+    <button onclick="validar()">Validar</button>
+    <br>
+    <br>
+    <div id="div_resultado"></div>
+
+</body>
+
+<script>
+    function validar() {
+
+        const alturaMinima = input_altura_minima.value;
+        const alturaMaxima = input_altura_maxima.value;
+        const nomeCandidato = input_nome_candidato_piloto.value;
+        const alturaCandidato = input_altura_candidato_piloto.value;
+
+
+        if (alturaMinima > 1 && alturaMaxima > alturaMinima) {
+            if (alturaCandidato >= alturaMinima && alturaCandidato <= alturaMaxima) {
+                div_resultado.innerHTML += `<p>O candidato ${nomeCandidato} com altura de ${alturaCandidato} participará do processo de seleção de piloto</p>`;
+            } else {
+                div_resultado.innerHTML += `<p>Infelizmente o candidato ${nomeCandidato} com altura de ${alturaCandidato} não atende os requisitos</p>`;
+            };
+        }else{
+            alert("Erro! Confira se a altura mínima é maior que 1 metro e se a altura máxima é maior que a mínima e tente novamente.")
+        }
+
+
+    };
+
+
+</script>
+
+</html>

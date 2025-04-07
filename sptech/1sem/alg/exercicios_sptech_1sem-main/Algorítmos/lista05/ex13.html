@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestação empréstimo</title>
+</head>
+<body>
+    <p>Digite o valor do emprestimo:</p>
+    <input type="number" id="input_valor_emprestimo">
+    <p>Digite a quantidade de parcelas:</p>
+    <input type="number" id="input_qtd_parcelas">
+    <p>Digite a taxa de juros ao mes em %:</p>
+    <input type="number" id="input_taxa_juros">
+    <p></p>
+    <button onclick="calcularExibirPrestacao()">Calcular Prestação</button>
+    <p></p>
+    <div id="div_resultado"></div>
+    
+    
+    
+</body>
+<script>
+    function calcularExibirPrestacao(){
+        const valorEmprestimo = Number(input_valor_emprestimo.value);
+        const qtdParcelas = Number(input_qtd_parcelas.value);
+        const taxaJuros = Number(input_taxa_juros.value)
+        const valorTotal = valorEmprestimo + (valorEmprestimo * taxaJuros/100 * qtdParcelas);
+        
+        if(valorTotal <= 1000){
+            div_resultado.innerHTML = `<p>Parcela aceitável: R$ ${valorTotal}</p>`;
+        } else{
+            div_resultado.innerHTML = `<p>Parcela alta, considere aumentar o número de parcelas!</p>`;
+        };
+
+        
+    }
+
+</script>
+</html>

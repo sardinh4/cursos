@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid19</title>
+</head>
+<body>
+
+    <!--
+        2. Crie um programa o qual ajudará o governo a saber se ele dará a ajuda emergencial ao Covid19 a um cidadão: 
+            a) Solicite o valor da renda individual do usuário;
+            b) Solicite o valor da renda familiar do usuário;
+            c) Ao clicar em "Terei o benefício?", podem aparecer as seguintes mensagens: 
+
+            c.1)   "Você terá direito ao auxílio", caso renda individual for até 2000 ou a renda familiar for até 3000;
+
+            c.2) "Sem direito ao auxílio", caso contrário.
+    -->
+
+    <input type="number" id="input_renda_individual">
+    <br>
+    <label for="input_renda_individual">Digite a sua renda individual:</label>
+    <br>
+    <br>
+    <input type="number" id="input_renda_familiar">
+    <br>
+    <label for="input_renda_familiar">Digite a sua renda familiar:</label>
+    <br>
+    <br>
+    <button onclick="exibirSituacaoBeneficio()">Terei o benefício?</button>
+    <br>
+    <br>
+    <p id="p_resultado"></p>
+    
+</body>
+
+<script>
+    function exibirSituacaoBeneficio(){
+
+        rendaIndividual = input_renda_individual.value;
+        rendaFamiliar = input_renda_familiar.value;
+
+        var mensagem = "Sem direito ao auxílio";
+
+        if(rendaIndividual <= 2000 || rendaFamiliar <= 3000){
+            mensagem =  "Você terá direito ao auxílio";
+        };
+
+        p_resultado.innerHTML = mensagem;
+    };
+
+   
+</script>
+
+</html>

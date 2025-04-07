@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Vale Transporte</title>
+    <style>
+        input{
+            display: block;
+            width: 600px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Vale Transporte</h1>
+    <input id="input_valor_passagem_onibus" type="number" placeholder="Digite aqui o valor da passagem do ônibus em R$:">
+    <input id="input_quantidade_viagens_mes" type="number" placeholder="Digite aqui a quantidade de viagens que você faz por mês até o trabalho (ida e volta):">
+    <input id="input_distancia_casa_trabalho" type="number" placeholder="Digite aqui a distância do seu trabalho até a sua casa em Km:">
+    <button onclick="calcularMostrarValeTransporte()">Calcular VT</button>
+    <br>
+    <div id="div_resultado_vale_transporte"></div>
+
+    
+    
+</body>
+
+<script>
+    function calcularMostrarValeTransporte(){
+        var valorPassagemOnibus = Number(input_valor_passagem_onibus.value);
+        var quantidadeViagensMes = Number(input_quantidade_viagens_mes.value);
+        var distanciaCasaTrabalho = Number(input_distancia_casa_trabalho.value);
+        var quantidadeViagensUberMes = quantidadeViagensMes * 0.1;
+        var quantidadeViagensOnibusMes = quantidadeViagensMes - quantidadeViagensUberMes;
+        var valorViagensUberMes = (0.75 * distanciaCasaTrabalho)*quantidadeViagensUberMes;
+        var valorViagensOnibusMes = valorPassagemOnibus * quantidadeViagensOnibusMes;
+        
+        var resultadoValeTransporte = valorViagensOnibusMes + valorViagensUberMes;
+        resultadoValeTransporte = resultadoValeTransporte.toFixed(2)
+
+        div_resultado_vale_transporte.innerHTML = `
+        <h2>Resultado:</h2>
+        <p> Você vai gastar R$${resultadoValeTransporte} por mês com transporte. </p>
+        `
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimo</title>
+</head>
+<body>
+    <p>Digite o valor do emprestimo:</p>
+    <input type="number" id="input_valor_emprestimo">
+    <p>Digite a quantidade de parcelas:</p>
+    <input type="number" id="input_qtd_parcelas">
+    <p></p>
+    <button onclick="calcularExibirJuros()">Calcular Juros</button>
+    <p></p>
+    <div id="div_resultado"></div>
+    
+    
+    
+</body>
+<script>
+    function calcularExibirJuros(){
+        const valorEmprestimo = Number(input_valor_emprestimo.value);
+        const qtdParcelas = Number(input_qtd_parcelas.value);
+        const valorTotal = valorEmprestimo + (valorEmprestimo * 0.02 * qtdParcelas);
+
+        if(valorTotal <= 50000){
+            div_resultado.innerHTML = `<p>Valor total a pagar em ${qtdParcelas} meses é de R$ ${valorTotal.toFixed(2)}</p>`
+        } else{
+            div_resultado.innerHTML = `<p>Empréstimo de alto valor, consulte o gerente!</p>`
+        }
+
+        
+    }
+
+</script>
+</html>

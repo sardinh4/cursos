@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Saiyajin</title>
+    <style>
+        input{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Super Saiyajin</h1>
+    <p>Calculadora de poder de um Super Saiyajin. </p>
+    <p> Digite abaixo o "ki base" (força base) do guerreiro Saiyajin:</p>
+    <input id="input_ki" type="number" placeholder='Digite aqui: '>
+    <p>Transformar em...</p>
+    <button onclick="calcularMostrarSSJ()">SSJ</button>
+    <button onclick="calcularMostrarSSJ2()">SSJ2</button>
+    <button onclick="calcularMostrarSSJ3()">SSJ3</button>
+    <br>
+    <div id="div_resultado_poder"></div>
+    
+</body>
+
+<script>
+    function calcularMostrarSSJ(){
+        var kiBase = Number(input_ki.value);
+        var fatorTransformacao = 50;
+
+        div_resultado_poder.innerHTML = `<p>Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${kiBase*fatorTransformacao}.</p>`
+
+    }
+    function calcularMostrarSSJ2(){
+        var kiBase = Number(input_ki.value);
+        var fatorTransformacao = 100;
+
+        div_resultado_poder.innerHTML = `<p>Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${kiBase*fatorTransformacao}.</p>`
+
+    }
+    function calcularMostrarSSJ3(){
+        var kiBase = Number(input_ki.value);
+        var fatorTransformacao = 200;
+
+        div_resultado_poder.innerHTML = `<p>Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${kiBase*fatorTransformacao}.</p>`
+    }
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplos de 5</title>
+</head>
+<body>
+
+    <!--
+       7. Crie um programa o qual: 
+
+        a) Receba do usuário um número (tem que ser entre 20 e 100);
+
+        b) Ao clicar num botão "Adoro múltiplos de 5"... 
+
+        c) Exiba, debaixo do botão, todos os múltiplos de 5, entre 0 e o número informado em a), um embaixo do outro. 
+
+        Exemplo de saída: 
+           
+            5
+
+            10
+
+            15
+
+            20 
+    -->
+
+    <select id="select_numeros"></select>
+    <br>
+    <br>
+    <button onclick="exibirMultiplos5()">Adoro múltiplos de 5</button>
+    <div id="resultado"></div>
+    
+</body>
+
+<script>
+    function criarOpcoesSelect(){
+        for(var contador = 20; contador <= 100; contador++){
+            select_numeros.innerHTML += `<option value="${contador}">${contador}</option>`
+            
+        }
+
+    };
+
+    criarOpcoesSelect();
+
+    function exibirMultiplos5(){
+        resultado.innerHTML = "";
+        const numero = select_numeros.value;
+
+        for(var contador = 1; contador <= numero; contador++){
+            resultado.innerHTML += `<p>${contador} x 5 = ${contador*5}`;
+        };
+    };
+</script>
+
+</html>

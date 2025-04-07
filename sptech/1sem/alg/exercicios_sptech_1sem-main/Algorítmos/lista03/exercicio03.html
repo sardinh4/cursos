@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tabuada</title>
+</head>
+<body>
+    <h1>Calculadora de Tabuada</h1>
+    <input id="numero_tabuada" type="number" placeholder="Digite aqui o número da sua tabuada: ">
+    <button onclick="calcularMostrarTabuada()">Ver Tabuada</button>
+    <div id="div_tabuada"></div>
+    
+</body>
+
+<script>
+    function calcularMostrarTabuada(){
+        var numeroTabuada = Number(numero_tabuada.value);
+        div_tabuada.innerHTML = `<h1>Tabuada do ${numeroTabuada}</h1>
+        <p>${numeroTabuada} x 1 = ${numeroTabuada*1}</p>
+        <p>${numeroTabuada} x 2 = ${numeroTabuada*2}</p>
+        <p>${numeroTabuada} x 3 = ${numeroTabuada*3}</p>
+        <p>${numeroTabuada} x 4 = ${numeroTabuada*4}</p>
+        <p>${numeroTabuada} x 5 = ${numeroTabuada*5}</p>
+        <p>${numeroTabuada} x 6 = ${numeroTabuada*6}</p>
+        <p>${numeroTabuada} x 7 = ${numeroTabuada*7}</p>
+        <p>${numeroTabuada} x 8 = ${numeroTabuada*8}</p>
+        <p>${numeroTabuada} x 9 = ${numeroTabuada*9}</p>
+        `
+    }
+</script>
+</html>

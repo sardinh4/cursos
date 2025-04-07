@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Fases do Sono</title>
+</head>
+<body>
+    <h1>As Fases do Sono</h1>
+    <p>Para exibir as suas fases do sono digite no campo abaixo a quantidade de horas de sono que você dormiu e clique no botão "Calcular Sono".</p>
+    <div id="div_horas_sono">
+        <input id="input_horas_sono" type="number" placeholder="Digite aqui: ">
+        <button id="button_calcular_sono" onclick="mostrarCalculoSono()">Calcular Sono</button>   
+    </div>
+    <div id="div_fases_sono"></div>
+    
+</body>
+
+<script>
+    function mostrarCalculoSono(){
+        var horasSono = Number(input_horas_sono.value);
+        var fase1 = horasSono * 0.05;
+        var fase2 = horasSono * 0.45;
+        var fase3 = horasSono * 0.3;
+        var faseRem = horasSono * 0.2;
+
+        div_fases_sono.innerHTML = `<h2>Ao dormir ${horasSono} horas, você dormiu:</h2>
+            <p>${fase1} horas na fase 1</p>
+            <p>${fase2} horas na fase 2</p>
+            <p>${fase3} horas na fase 3</p>
+            <p>${faseRem} horas na fase REM</p>
+            `      
+
+    }
+
+</script>
+
+</html>

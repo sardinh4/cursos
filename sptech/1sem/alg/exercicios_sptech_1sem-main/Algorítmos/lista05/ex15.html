@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição Academia</title>
+</head>
+<body>
+    <p>Nome:</p>
+    <input type="text" id="input_nome">
+    <p>Idade:</p>
+    <input type="number" id="input_idade">
+    <p>Peso (Kg):</p>
+    <input type="number" id="input_peso">
+    <p>Altura (m):</p>
+    <input type="number" id="input_altura">
+    <p>Deseja personal trainer? (responda "sim" ou "não")</p>
+    <input type="text" id="input_deseja_personal_trainer">
+    <p></p>
+    <button onclick="calcularExibirValorInscrição()">Calcular Inscrição</button>
+    <p></p>
+    <div id="div_resultado"></div>
+    
+    
+    
+</body>
+<script>
+    function calcularExibirValorInscrição(){
+        const nome = input_nome.value;
+        const idade = input_idade.value;
+        const peso = Number(input_peso.value);
+        const altura = Number(input_altura.value);
+        const desejaPersonalTrainer = input_deseja_personal_trainer.value;
+
+
+        const IMC = peso/(altura**2);
+        
+        if(IMC < 18.5){
+            div_resultado.innerHTML = `<p>Abaixo do peso</p>`;
+        } else{
+            if(IMC <= 24.9){
+                div_resultado.innerHTML = `<p>Peso normal</p>`;
+            }else{
+                if(IMC <= 29.9){
+                    div_resultado.innerHTML = `<p>Sobrepeso</p>`;
+                }else{
+                    div_resultado.innerHTML = `<p>Obesidade</p>`;
+                };
+            };
+        };
+
+        var mensalidade = 100;
+
+        if(desejaPersonalTrainer == "sim"){
+            mensalidade += 50;
+            div_resultado.innerHTML += `<p>Plano com personal trainer incluído</p>`;
+        }else{
+            div_resultado.innerHTML += `<p>Plano sem personal trainer</p>`;
+        };
+        
+        if(idade >= 60){
+            mensalidade = mensalidade * 0.7;
+            div_resultado.innerHTML += `<p>Desconto sênior aplicado</p>`;
+        }else{
+            if(idade >= 19){
+                div_resultado.innerHTML += `<p>Sem descontos aplicáveis</p>`;
+            }else{
+                if(idade>=12){
+                    mensalidade = mensalidade * 0.85;
+                    div_resultado.innerHTML += `<p>Desconto jovem aplicado</p>`;
+                }else{
+                    div_resultado.innerHTML += `<p>Sem descontos aplicáveis</p>`;
+                }
+            }
+        };
+
+         div_resultado.innerHTML += `<h2>${nome}, o valor total da sua mensalidade é de R$ ${mensalidade.toFixed(2)}.</h2>`;
+
+        
+    }
+
+</script>
+</html>

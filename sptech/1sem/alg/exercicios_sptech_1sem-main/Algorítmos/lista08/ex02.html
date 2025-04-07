@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem para aula de Algoritmos</title>
+</head>
+<body>
+
+    <!--
+        2. Crie um programa o qual: 
+
+            a) Tenha um botão "Diga algo sobre a matéria de Algoritmos";
+
+            b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra.
+    -->
+
+    <button onclick="exibirMensagem()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="resultado"></div>
+    
+</body>
+
+<script>
+    function exibirMensagem(){
+        resultado.innerHTML = '';
+        for(var contador = 1; contador <= 7; contador++){
+            resultado.innerHTML += `<p>Algoritmos é incrível!</p>`;
+        };
+    };
+</script>
+
+</html>

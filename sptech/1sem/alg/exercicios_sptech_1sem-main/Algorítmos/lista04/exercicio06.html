@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrara Drivers</title>
+</head>
+<body>
+
+    <h1>Carrara Drivers</h1>
+    <h3>Nome do passageiro:</h3>
+    <input id="nome_passageiro" type="text" placeholder="Digite aqui o nome do passageiro: ">
+    <h3>Distância (em km) do local atual para o destino do passageiro: </h3>
+    <input type="number" id="distancia_destino_passageiro" placeholder="Digite aqui a distância atéo destino do passageiro:">
+    <h3>Bandeira da corrida:</h3>
+    <input type="number" id="bandeira_corrida" placeholder="Digite aqui o número da bandeira da corrida:">
+    <h3>Horário:</h3>
+    <input type="number" id="horario_corrida" placeholder="Digite aqui o horário da corrida:">
+    <button onclick="calcularExibirValorCorrida()">Calcular corrida</button>
+    <div id="resultado"></div>
+    
+</body>
+<script>
+
+    function calcularExibirValorCorrida(){
+        const nomePassageiro = nome_passageiro.value;
+        const distanciaDestinoPassageiro = Number(distancia_destino_passageiro.value);
+        const bandeira = Number(bandeira_corrida.value);
+        const horarioCorrida = Number(horario_corrida.value);
+        var valorCorrida = distanciaDestinoPassageiro*1.25;
+
+        /*
+             if (horarioCorrida >=0 && horarioCorrida <=6 && bandeira == 1){
+            valorCorrida = valorCorrida * 1.05;
+        };
+
+        if (horarioCorrida >=7 && horarioCorrida <=12 && bandeira == 2){
+            valorCorrida = valorCorrida * 1.2;
+        };
+
+        if (horarioCorrida >=13 && horarioCorrida <=23 && bandeira == 3){
+            valorCorrida = valorCorrida * 1.45;
+        };
+
+
+        if((horarioCorrida >=7 && horarioCorrida <=12 && bandeira == 3) || (horarioCorrida >=13 && horarioCorrida <=23 && bandeira == 2)){
+            valorCorrida = valorCorrida * 1.3;
+        };
+
+        if((horarioCorrida >=0 && horarioCorrida <=6 && bandeira == 3) || (horarioCorrida >=13 && horarioCorrida <=23 && bandeira == 1)){
+            valorCorrida = valorCorrida * 1.15;
+        };
+
+        if((horarioCorrida >=0 && horarioCorrida <=6 && bandeira == 2) || (horarioCorrida >=17 && horarioCorrida <=12 && bandeira == 2)){
+            valorCorrida = valorCorrida * 1.1;
+        };
+
+        */
+
+        var acressimo = valorCorrida * (0.05 * bandeira)
+        valorCorrida = valorCorrida + acressimo;
+
+        if (horarioCorrida >=7){
+            valorCorrida = valorCorrida - acressimo;
+            acressimo = valorCorrida  * (0.1 * bandeira)
+            valorCorrida = valorCorrida + acressimo;
+
+                if (horarioCorrida >=12){
+                    valorCorrida = valorCorrida - acressimo;
+                    acressimo = valorCorrida * (0.15 * bandeira)
+                    valorCorrida = valorCorrida + acressimo;
+        }
+        }
+
+        resultado.innerHTML = `<p>Olá ${nomePassageiro}! Sua corrida será na bandeira ${bandeira}, percorrerá ${distanciaDestinoPassageiro}km e o total da corrida será de ${valorCorrida}</p>`
+
+    }
+
+</script>
+</html>

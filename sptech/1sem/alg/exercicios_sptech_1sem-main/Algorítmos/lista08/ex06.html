@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números cabalísticos</title>
+</head>
+<body>
+
+    <!--
+       6. Crie um programa o qual: 
+
+            a) Pergunte o nome da pessoa que o usuário mais ama na vida;
+
+            b) Pergunte o quanto o usuário a ama (um número inteiro);
+
+            c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3") 
+
+                 1 - Lady Gaga, eu te amo! Sempre lembre disso! 
+
+                 2 - Lady Gaga, eu te amo! Sempre lembre disso! 
+
+                 3 - Lady Gaga, eu te amo! Sempre lembre disso! 
+    -->
+
+    <label for="input_nome_pessoa_usuario_mais_ama">Digite o nome da pessoa que você mais ama na vida: </label>
+    <input id="input_nome_pessoa_usuario_mais_ama" type="text">
+    <br>
+    <br>
+    <label for="input_qtd_usuario_ama_pessoa">Digite o quanto você ama essa pessoa: </label>
+    <input id="input_qtd_usuario_ama_pessoa" type="number">
+    <br>
+    <br>
+    <button onclick="exibirExpressarAmor()">Expressar amor</button>
+    <div id="resultado"></div>
+    
+</body>
+
+<script>
+    function exibirExpressarAmor(){
+        resultado.innerHTML = "";
+        const pessoaUsuarioMaisAma = input_nome_pessoa_usuario_mais_ama.value;
+        var qtdAmor = input_qtd_usuario_ama_pessoa.value;
+
+        for(var contador = 1; contador <= qtdAmor; contador++){
+            resultado.innerHTML += `<p>${contador} - ${pessoaUsuarioMaisAma}, eu te amo! Sempre lembre disso!</p>`;
+        };
+    };
+</script>
+
+</html>
